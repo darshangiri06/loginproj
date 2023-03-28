@@ -1,0 +1,79 @@
+form{
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin:0 20px;
+  border: 1px solid rgb(227, 221, 221);
+}
+.container{
+  color:blue;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  margin:2%;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  margin:2%;
+}
+
+.container-2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2%;
+}
+button:hover {
+  opacity: 0.8;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  border: none;
+  cursor: pointer;
+  min-width: max-content;
+  max-width: fit-content;
+}
+
+span{
+  color:#04AA6D;
+  font-weight: 500;
+}
+span:hover{
+  color:red;
+}
+a:hover {
+  color:violet;
+  
+}
+.navbar {
+  width:100%;
+  background-color: #555;
+  overflow: auto;
+
+}
+
+/* Navbar links */
+.navbar a {
+  float:left;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #04AA6D;
+}
