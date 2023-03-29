@@ -1,31 +1,28 @@
-import React from "react";
-import { useEffect, useState } from 'react';
-import LoginHome from './Home';
-// importing Link from react-router-dom to navigate to 
-// different end points.
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { BrowserRouter } from 'react-router-dom'
 
 
-const Login= ()=>{
-    const [name,setName] = useState('');
-    const [password,setPassword] = useState('');
-    const [isLoggedIn,setIsLoggedIn] = useState(false);
-  
-    function handleSubmit(){
-      window.alert('cool! you are logged in')
-      setIsLoggedIn(true);
+const Signin= (props)=>{
+    const [name,setName] = useState(null)
+    const [password,setPassword] = useState(null);
+    const [error,setError] = useState(null)
+
+    function handleSubmit (){
+      if(name && password){
+      props.setName(name);
+      props.setPassword(password);
+      props.setIsLoggedIn(true);
+      }
+      else{
+        setError("Please fill all fields..")
+      }
+        
     }
     return(
       <>
-        <div class="navbar">
-          <Link to="/"><i class="fa fa-fw fa-home"></i>Home</Link>
-          <Link to="/contact"><i class="fa fa-fw fa-envelope"></i>Home</Link>
-        </div>
       {
-        !isLoggedIn && 
-    <form >
-      
+        !props.isLoggedIn && 
+    <form  >
       <span>Login Form</span>
       <div className="container ">
         <div className="row">
@@ -37,21 +34,29 @@ const Login= ()=>{
         <label htmlFor="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" value={password} onChange={(val)=>setPassword(val.target.value)} required/>
         </div>
-  
-        <button onClick={handleSubmit}>Login</button>
+        <div className="error">
+          {error}
+        </div>
+
+        
       
       </div>
   
       <div className="container-2" >
-        <button type="button" className="cancelbtn">Cancel</button>
-        <span className="psw"><a href="C:\Users\darshan.giri\Desktop\dish_test\my-app\src\loginHome.js">Forgot password?</a></span>
+        <button type='submit' onClick={handleSubmit} >Login</button>
+        
+        <span className="psw"><Link href="/">Forgot password?</Link></span>
       </div>
   </form>
   
   }
   
-  {isLoggedIn &&  <LoginHome name={name} /> }
+  {props.isLoggedIn &&  
+    <div className="container">
+      <h4> Logged in </h4>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta voluptas recusandae est vitae repellendus facere possimus! Possimus exercitationem est obcaecati optio unde minus omnis culpa amet esse, nostrum porro eos.</p>
+    </div> }
       </>
       
     )}
-  export default Login  
+  export default Signin  

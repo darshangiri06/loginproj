@@ -1,53 +1,30 @@
 import './App.css';
 import React from "react";
-import  {useState}  from 'react';
-import Home from './Home';
+import Homepage from './Homepage';
+import Contact from './Contact';
+import Signin from './Signin';
+import Navbar from './Navbar';
+import {useState } from 'react';
+import { BrowserRouter as Router, Routes, Route}
+    from 'react-router-dom';
 
-const App= ()=>{
+function App() {
     const [name,setName] = useState('');
     const [password,setPassword] = useState('');
     const [isLoggedIn,setIsLoggedIn] = useState(false);
   
-    function handleSubmit(){
-      window.alert('cool! you are logged in')
-      setIsLoggedIn(true);
-    }
-    return(
-      <>
-        
-      {
-        !isLoggedIn && 
-    <form >
-      
-      <span>Login Form</span>
-      <div className="container ">
-        <div className="row">
-        <label htmlFor="name"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="name" value={name} onChange={(val)=>setName(val.target.value)} required/>
-        </div>
-          
-        <div className="row">
-        <label htmlFor="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" value={password} onChange={(val)=>setPassword(val.target.value)} required/>
-        </div>
-  
-        <button onClick={handleSubmit}>Login</button>
-      
-      </div>
-  
-      <div className="container-2" >
-        <button type="button" className="cancelbtn">Cancel</button>
-        <span className="psw"><a href="C:\Users\darshan.giri\Desktop\dish_test\my-app\src\Home.js">Forgot password?</a></span>
-      </div>
-  </form>
-  
-  }
-  
-  {isLoggedIn &&  <Home name={name} /> }
-      </>
-      
-    )}
 
-  export default App;  
- 
+    return (
+      <Router>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} name={name} setName={setName}/>
+        <Routes>
+            {/* passing props to routes */}
+            <Route exact path='/'  Component={() => <Homepage name={name} isLoggedIn={isLoggedIn}/>} />
+            <Route path='/contact' Component={() => <Contact name={name} isLoggedIn={isLoggedIn}/>}/>
+            <Route path='/Signin'  Component={()=>  <Signin name={name} setName={setName} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}  password={password} setPassword={setPassword} /> } />
+        </Routes>
+      </Router>
+  );
+}
+export default App;
 

@@ -4,7 +4,7 @@ form{
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin:0 20px;
+  margin:10px 10px;
   border: 1px solid rgb(227, 221, 221);
 }
 .container{
@@ -12,13 +12,45 @@ form{
   padding: 3px;
   display: flex;
   flex-direction: column;
-  margin:2%;
+  margin: 10px ;
+  width: 50%;
 }
+
 
 .row{
   display: flex;
   flex-direction: row;
-  margin:2%;
+  margin:0px;
+}
+
+.navbar{
+  background-color: rgb(18, 18, 80);
+  width: 100%;
+  display:inline-block;
+}
+.navbar a{
+  color: white;
+  text-decoration: none;
+}
+.navbar a:hover{
+  color: rgb(255, 41, 41);
+}
+
+.navbar .left{
+  text-transform: capitalize;
+  margin-right: 10%;
+}
+
+.navbar span{
+ cursor: pointer;
+ padding: 5px;
+}
+
+.navbar .right{
+  color: white;
+}
+.navbar .right:hover{
+  border-bottom: 2px solid red;
 }
 
 .container-2{
@@ -29,12 +61,13 @@ form{
 }
 button:hover {
   opacity: 0.8;
+  color:black;
 }
 button {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
-  margin: 8px 8px;
+  margin: 1px 10px;
   border: none;
   cursor: pointer;
   min-width: max-content;
@@ -48,32 +81,11 @@ span{
 span:hover{
   color:red;
 }
-a:hover {
-  color:violet;
-  
-}
-.navbar {
-  width:100%;
-  background-color: #555;
-  overflow: auto;
-
+.psw a:hover{
+  color:red;
 }
 
-/* Navbar links */
-.navbar a {
-  float:left;
-  padding: 5px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-}
 
-/* Navbar links on mouse-over */
-.navbar a:hover {
-  background-color: #000;
-}
-
-/* Current/active navbar link */
-.active {
-  background-color: #04AA6D;
+.error{
+  color: red;
 }
